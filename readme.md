@@ -30,4 +30,3 @@ This project was created to learn and practice:
 
 ---
 
-## Project Structure

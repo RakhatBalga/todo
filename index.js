@@ -37,6 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
         input.value = '';
     });
 
+    input.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter') {
+            button.click();
+        }
+    });
+
     // initial render
     render();
 });

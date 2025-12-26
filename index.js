@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const button = document.querySelector('.add');
     const list = document.querySelector('.list');
 
-
-    let todos = [];
-
+    let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
     function render() {
         list.innerHTML = '';
@@ -25,8 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
             li.appendChild(deleteBtn);
             list.appendChild(li);
         });
-    }
 
+        // save to localStorage
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
 
     button.addEventListener('click', () => {
         const value = input.value.trim();
@@ -36,4 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         render();
         input.value = '';
     });
+
+    // initial render
+    render();
 });
